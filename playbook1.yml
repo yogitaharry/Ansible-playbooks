@@ -1,0 +1,30 @@
+
+playbook to show use of command,script and yum/apt module by :
+   play1 : run date command , and execute script1.sh and install nginx on HOST1
+   play2 : run uptime command , and execute script2.sh and install apache on HOST2
+   
+=======================================================================================
+---
+  -hosts: host1
+   name: play1
+   sudo: yes
+   tasks:
+      -name: execute date command
+       command: date
+      -name: execute script1
+       script: script1.sh
+      -name: install nginx
+       yum: name=nginx  state=present
+       
+   -hosts: host2
+    name: play2
+    sudo:yes
+    tasks:
+      -name: execute uptime command
+       command:uptime
+      -name: execute script2
+       script: script2.sh
+      -name: install apache
+       apt: name=apache  state=latest
+       
+=======================================================================================
