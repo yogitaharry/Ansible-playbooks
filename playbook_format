@@ -1,0 +1,35 @@
+- - -
+  - hosts: host1:web
+    name: play1
+    sudo:yes
+    vars:
+       var1: this is harry
+       
+    vars_prompt:
+       name: var1
+       prompt: Enter value for var ??
+       
+    gather_facts: false
+    startegy: liner/free
+    
+    tasks:
+       -name:
+        module: code
+        
+        async: 70
+        poll: 35
+        
+        ignore_error: yes
+        
+        with_items:
+           -value1
+           -value2
+           
+        when: True/false
+        
+        
+    
+    
+    
+    
+    
